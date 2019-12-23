@@ -6,7 +6,7 @@ namespace darkfriend\helpers;
  * Class ArrayHelper
  * @package darkfriend\devhelpers
  * @author darkfriend <hi@darkfriend.ru>
- * @version 1.0.0
+ * @version 1.0.2
  */
 class ArrayHelper
 {
@@ -83,5 +83,16 @@ class ArrayHelper
             return $callback($a, $b, $orderArray);
         });
         return $source;
+    }
+
+    /**
+     * Проверяет совпадение ключей в $sourceArray
+     * @param array $arKeys
+     * @param array $sourceArray
+     * @return bool
+     * @since 1.0.2
+     */
+    static public function keysExists($arKeys, $sourceArray) {
+        return !array_diff_key(array_flip($arKeys), $sourceArray);
     }
 }
