@@ -6,7 +6,7 @@ namespace darkfriend\helpers;
  * Class ArrayHelper
  * @package darkfriend\devhelpers
  * @author darkfriend <hi@darkfriend.ru>
- * @version 1.0.4
+ * @version 1.0.5
  */
 class ArrayHelper
 {
@@ -89,12 +89,16 @@ class ArrayHelper
      * Check includes keys in $sourceArray
      * @param array $arKeys
      * @param array $sourceArray
+     * @param bool $strict all $arKeys in $sourceArray
      * @return bool
      * @since 1.0.2
      */
-    static public function keysExists($arKeys, $sourceArray)
+    public static function keysExists(array $arKeys, array $sourceArray, $strict=false)
     {
-        return !array_diff_key(array_flip($arKeys), $sourceArray);
+        if($strict) {
+            return !\array_diff_key(\array_flip($arKeys), $sourceArray);
+        }
+        return $arKeys !== \array_diff($arKeys, \array_flip($sourceArray));
     }
 
     /**
