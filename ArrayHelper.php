@@ -6,7 +6,7 @@ namespace darkfriend\helpers;
  * Class ArrayHelper
  * @package darkfriend\devhelpers
  * @author darkfriend <hi@darkfriend.ru>
- * @version 1.0.5
+ * @version 1.0.7
  */
 class ArrayHelper
 {
@@ -117,6 +117,9 @@ class ArrayHelper
                 if($negative) {
                     return true;
                 }
+                return false;
+            }
+            if ($negative) {
                 return false;
             }
             return true;
